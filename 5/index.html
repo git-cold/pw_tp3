@@ -5,12 +5,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script defer src="main.js" type="module"></script>
-  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <span>Hello World</span>
 </body>
+
+<script>
+  function test(variable) {
+    if (variable < 10) {
+      console.log("inférieur à 10")
+    } else {
+      console.log("supérieur à 10")
+    }
+  }
+
+  function count() {
+    for (let i = 1; i < 11; i++) {
+      console.log(i)
+    }
+  }
+
+  function render_table(table) {
+    const body = document.querySelector("body");
+    if (!body) return;
+
+    const table_dom = document.createElement('table');
+    table_dom.style.borderCollapse = "collapse";
+
+    for (const i of table) {
+      const row = document.createElement("tr");
+      for (const j of i) {
+        const td = document.createElement("td");
+        td.textContent = j;
+        td.style.border = "1px solid black";
+        row.appendChild(td);
+      }
+      table_dom.appendChild(row);
+    }
+
+    body.appendChild(table_dom);
+  }
+
+
+  test(3)
+  count()
+
+  render_table([[1, 2, 4, 5, 4], [3, 4, 5, 6, 5]])
+</script>
 
 </html>

@@ -5,12 +5,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script defer src="main.js" type="module"></script>
-  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <span>Hello World</span>
+  <a href="https://google.com" target="_blank">google</a>
+  <a href="https://bing.com" target="_blank">bing</a>
+
+  <button id="openPopup">Ouvrir popup</button>
+
+  <script>
+    let popupWindow = null;
+
+    document.getElementById("openPopup").addEventListener("click", () => {
+      popupWindow = window.open("", "popup", "width=400,height=300");
+      popupWindow.document.write("Hello World");
+    });
+
+    const links = document.querySelectorAll("a");
+    for (const l of links) {
+      l.addEventListener("mouseover", () => {
+        if (popupWindow && !popupWindow.closed) {
+          popupWindow.close();
+        }
+      });
+    }
+  </script>
 </body>
 
 </html>

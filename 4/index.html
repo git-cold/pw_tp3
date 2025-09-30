@@ -5,12 +5,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script defer src="main.js" type="module"></script>
-  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <span>Hello World</span>
+  <button onclick="alert('Hello World')">Afficher alert</button>
+  <img src="tree.png" alt="" width="200">
+  <a href="google.com">gooogle</a>
 </body>
+
+<script>
+
+  function hover(text) {
+
+    const media = document.querySelectorAll('a, img')
+    for (const m of media) {
+      m.addEventListener("mouseover", () => {
+        alert(text)
+      })
+    }
+  }
+
+  hover("You hover an image or a link")
+</script>
 
 </html>

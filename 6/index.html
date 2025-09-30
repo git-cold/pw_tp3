@@ -5,11 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script defer src="main.js" type="module"></script>
-  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <form oninput="out.value = inp.value">
+    <input type="text" name="inp">
+    <output name="out"></output>
+    <input type="text" oninput="document.getElementById('copy').value = this.value">
+  </form>
+
+  <form oninput="inp.value = sel.value">
+    <select name="sel">
+      <option value="France">France</option>
+      <option value="USA">USA</option>
+    </select>
+    <input type="text" name="inp">
+    <input type="text" id="copy">
+  </form>
   <span>Hello World</span>
 </body>
 
